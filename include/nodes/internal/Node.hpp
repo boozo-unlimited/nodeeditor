@@ -59,6 +59,14 @@ public:
   void
   resetReactionToConnection();
 
+
+  virtual QVariant
+  data(int role) const;
+
+  virtual void
+  setData(int role,
+          const QVariant & value);
+
 public:
 
   NodeGraphicsObject const &
@@ -108,6 +116,8 @@ private:
   std::unique_ptr<NodeDataModel> _nodeDataModel;
 
   NodeState _nodeState;
+
+  QMap<int, QVariant> _userData;
 
   // painting
 

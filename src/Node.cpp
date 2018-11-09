@@ -112,6 +112,19 @@ resetReactionToConnection()
   _nodeGraphicsObject->update();
 }
 
+QVariant Node::data(int role) const
+{
+    if (_userData.contains(role))
+    {
+        return _userData[role];
+    }
+    return QVariant();
+}
+
+void Node::setData(int role, const QVariant & value)
+{
+    _userData.insert(role, value);
+}
 
 NodeGraphicsObject const &
 Node::
